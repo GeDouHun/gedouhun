@@ -1,0 +1,43 @@
+	*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			/* 顶部导航栏设置 */
+			nav{
+				display: flex;
+				opacity: 0.7;
+				height: 80px;
+				width: 100%;
+				background-color: #07002c;
+			}
+			/* 顶部导航栏布局设置 */
+			nav>ul{
+				display: flex;
+				width: 100%;
+				justify-content: space-evenly;
+				background-color: #07002c;
+			}
+			/* 顶部导航栏项目设置 */
+			nav li{
+				line-height: 80px;
+				font-size: 25px;
+				border-radius: 20px;
+				text-align: center;
+				height: 80px;
+				width: 180px;
+			}
+			/* 顶部导航栏字体样式 */
+			nav a{
+				color: #f7f7f7;
+				text-decoration: none;
+			}
+			/* 顶部导航栏#悬浮字体样式 */
+			nav a:hover{
+				color: #0effff;
+			}
+			.story{
+				width: 100%;
+				border-radius: 20px;
+				
+			}
