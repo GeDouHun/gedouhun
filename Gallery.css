@@ -1,0 +1,90 @@
+/* 设置全局样式 */
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				background-color: #1a1a2e;
+			}
+			/* 顶部导航栏设置 */
+			nav{
+				/* opacity: 0.7; */
+				position: fixed;
+				display: flex;
+				margin: 0 auto;
+				height: 80px;
+				width: 100%;
+			}
+			/* 统一背景颜色 */
+			nav *{
+				background-color: #1a1a2e;
+			}
+			/* 顶部导航栏布局设置 */
+			nav>ul{
+				display: flex;
+				margin: 0 auto;
+				width: 60%;
+				justify-content: space-evenly;
+			}
+			/* 顶部导航栏项目设置 */
+			.nav-main>li{
+				line-height: 80px;
+				font-size: 25px;
+				text-align: center;
+				height: 80px;
+				width: 180px;
+			}
+			/* 顶部导航栏字体样式 */
+			.nav-main a{
+				font-family: '楷体';
+				font-size: 30px;
+				color: #f7f7f7;
+				text-decoration: none;
+				text-shadow: 1px 2px 2px gray;
+			}
+			/* 顶部导航栏#悬浮字体样式 */
+			.nav-main a:hover{
+				color: #0effff;
+			}
+			/* 汉堡菜单定位调整 */
+			.hamburger-menu{
+				right: 20px;
+				top: 15px;
+			}
+			/* 汉堡折叠菜单定位调整 */
+			.hamburger-toggle{
+				top: 53px;
+				right: -15px;
+			}
+			/* 设置分割容器 */
+			.split{
+				width: 90%;
+				margin: 0 5% 5% 5%;
+				padding-top: 100px;
+			}
+			/* 设置标题 */
+			.tittle{
+				color: #f7f7f7;
+				font-size: 30px;
+			}
+			/* 设置横线 */
+			.split hr{
+				width: 100%;
+			}
+			/* 设置网格布局 图鉴主要采用网格布局 */
+			.gallery{
+				height: 1200px;
+				width: 90%;
+				margin: 5%;
+				gap: 2%;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;/* 设置每竖列的宽 */
+				grid-template-rows: 20% 20% 20% 20% 20%;
+				
+			}
+			/* 设置网格容器 */
+			.gallery-items{
+				
+				border-radius: 20px;
+				border: 3px solid #55aaff;
+				background-color: #2a2a4f;
+			}

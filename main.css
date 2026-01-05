@@ -1,0 +1,325 @@
+			/* 设置全局样式 */
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				box-sizing: border-box;
+				background-color: #1a1a2e;
+			}
+			/* 
+			 常规颜色
+			 文本背景颜色: #2a2a4f;
+			 全局背景颜色: #1a1a2e;
+			 鼠标悬浮文字颜色: #25edff;
+			 边框颜色: #55aaff;
+			 文字颜色: #f7f7f7;
+			 
+			 隐藏菜单颜色
+			 文字颜色:#aa55ff;
+			 边框颜色:#4d47ff;
+			 文字鼠标悬浮颜色: #55ffaa;
+			 备用颜色: #2a38ff;*/
+
+			/* 设置导航栏整体样式 */
+			nav {
+				position: relative;
+				display: flex;
+				margin: 0 auto;
+				width: 100%;
+				height: 120px;
+				align-items: center;
+				justify-content: flex-end;
+				/* justify-content: center; */
+			}
+			/* 设置导航条横向排列 */
+			.nav-main{
+				display: flex;
+				gap: 20px;
+				align-items: center;
+				height: 120px;
+				width: 600px;
+			}
+			/* 设置导航条 */
+			.nav-child{
+				height: 50%;
+				width: 100%;
+				font-family: '楷体';
+				color: #f7f7f7;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 2px solid #55aaff;
+				background-color: #2a2a4f;
+				font-size: 25px;
+				border-radius: 6px;
+			}
+			/* 颜色覆盖 */
+			.nav-child *{
+				color: #f7f7f7;
+				background-color: #2a2a4f;
+			}
+			/* 导航条a标签样式 */
+			.nav-child>a{
+				/* 清除下划线 */
+				text-decoration: none;
+				text-shadow: 1px 2px 2px gray;
+			}
+			/* 设置箭头样式 */
+			.arrow-icon{
+				background-color: #2a2a4f;/* 颜色覆盖 */
+				margin-right: 3.8px;/* 防止箭头覆盖“首页”字体 */
+				border-radius: 100%;
+			}
+			/* 箭头旋转动画持续时间*/
+			.arrow-icon{
+				display: inline-block;
+				transition: transform 0.3s ease;
+			}
+			/* 添加箭头旋转类 */
+			.arrow-icon.rotated{
+				transform: rotate(90deg);
+			}
+			/* 设置鼠标悬浮字体样式 */
+			.nav-main a:hover{
+				color: #25edff;
+				text-shadow: white;
+			}
+			/* 点击后变回原来颜色 */
+			.nav-main a:active{
+				color: #f7f7f7;
+			}
+			/* banner图占据整个视口宽度 */
+			nav+img{
+				width: 100%;
+			}
+			/* Logo图 */
+			.Logo{
+				position: absolute;
+				left: 25px;
+				top: 10px;
+				z-index: 10;
+				height: 100px;
+			}
+			/* 文本区样式 */
+			.text{
+				color: #f7f7f7;
+				border: 2.5px solid #55aaff;
+				margin: 50px 50px;
+				padding: 15px 15px;
+				border-radius: 20px;
+				background-color: #2a2a4f;
+				height: 560px;
+				font-size: 20px;
+			}
+			/* 确保背景覆盖 */
+			.text *{
+				background-color: #2a2a4f;
+			}
+			/* 箭头折叠菜单定位 */
+			.arrow-toggle-down{
+				display: none;
+				position: relative;
+			}
+			/* 设置箭头折叠菜单垂直排列 */
+			.arrow-toggle-down ul{
+				gap: 0;
+				top: 29px;
+				right: -13px;/* 定位到“首页”下方 */
+				position: absolute;
+				background-color: transparent;
+				border-radius: 8px;
+				display: flex;
+				flex-direction: column;
+			}
+			/* 设置箭头折叠菜单样式 */
+			.arrow-toggle-down li{
+				height: 40px;
+				width: 104px;
+				color: #aa55ff;
+				display: flex;
+				font-size: 20px;
+				align-items: center;
+				justify-content: center;
+				background-color: #2a1a3e;
+				border: 2px solid #4d47ff;
+			}
+			/* 设置附属a标签 */
+			.arrow-toggle-down a{
+				height: 100%;
+				width: 100%;
+				color: #aa55ff;
+				display: flex;
+				border-bottom-left-radius: 6px;/* 圆角覆盖 */
+				border-bottom-right-radius: 6px;/* 圆角覆盖 */
+				align-items: center;
+				justify-content: center;
+				background-color: #2a1a3e;
+				text-decoration: none;
+			}
+			.arrow-toggle-down a:hover{
+				color: #55ffaa;
+			}
+			/* 箭头折叠菜单基于“首页”定位 */
+			.nav-child:first-child{
+				position: relative;
+			}
+			
+			/* 箭头折叠菜单除最后一个元素没有下边框 */
+			.arrow-toggle-down ul li:not(:last-child){
+				border-bottom: none;
+			}
+			/* 第一个li设置上圆角边框 */
+			.arrow-toggle-down ul li:first-child{
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+			}
+			/* 第五个li设置下圆角边框 */
+			.arrow-toggle-down ul li:last-child{
+				border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+			}
+			/* 箭头折叠菜单鼠标悬浮样式 */
+			.arrow-toggle-down li:hover{
+				color: #55ffaa;
+				cursor: pointer;
+			}
+			/* 汉堡菜单定位调整 */
+			.hamburger-menu{
+				right: 30px;
+				top: 30px;
+			}
+			/* 汉堡折叠菜单定位调整 */
+			.hamburger-toggle{
+				top: 50px;
+				right: -25px;
+			}
+			/* 设置标题文字样式 */
+			h3{
+				font-size: 30px;
+				background-color: #2a2a4f;
+				margin-bottom: 15px;
+				font-weight: normal;
+				width: 120px;
+				user-select: none;
+				/* 去除标题选中蓝色背景 */
+				/* outline: none; */
+			}
+			/* 设置标题鼠标悬浮样式 */
+			h3:hover{
+				color: #25edff;
+				cursor: pointer;
+			}
+			/* 页脚样式 */
+			.site-footer{
+				background-color: #1a1a2e;
+				border-top: 2px solid #55aaff;
+				color: #f7f7f7;
+				padding: 40px 0 20px;
+				margin-top: 60px;
+				font-family: '楷体', sans-serif;
+			}
+
+			.footer-container{
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				gap: 40px;
+			}
+			.footer-section{
+				flex: 1;
+				min-width: 250px;
+				margin-bottom: 30px;
+			}
+			.footer-title{
+				color: #25edff;
+				font-size: 20px;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #55aaff;
+			}
+			.footer-desc,.footer-links li,.tech-info{
+				color: #aaa;
+				line-height: 1.6;
+				font-size: 15px;
+			}
+			.footer-desc{
+				margin-bottom: 20px;
+			}
+			.footer-links{
+				list-style: none;
+				padding: 0;
+			}
+			.footer-links li{
+				margin-bottom: 12px;
+			}
+			.footer-link{
+				color: #f7f7f7;
+				text-decoration: none;
+				font-size: 16px;
+				transition: color 0.3s;
+			}
+			.footer-link:hover{
+				color: #25edff;
+			}
+			.social-links{
+				margin-top: 20px;
+				display: flex;
+				gap: 15px;
+			}
+			.social-icon{
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #55aaff;
+				border-radius: 50%;
+				color: #f7f7f7;
+				text-decoration: none;
+				transition: transform 0.3s;
+			}
+			.social-icon:hover{
+				transform: translateY(-3px);
+			}
+			.footer-bottom{
+				max-width: 1200px;
+				margin: 40px auto 0;
+				padding: 20px;
+				border-top: 1px solid rgba(85, 170, 255, 0.3);
+				text-align: center;
+				color: #888;
+				font-size: 14px;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+			.copyright,.tech-info{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 5px;
+			}
+			.separator{
+				margin: 0 10px;
+				color: #55aaff;
+			}
+			/* 响应式调整 */
+			@media (max-width: 1080px) {
+				.site-footer {
+					margin: 50px;
+				}
+				.footer-container {
+					flex-direction: column;
+					gap: 30px;
+				}
+				.footer-section {
+					min-width: 100%;
+				}
+				.separator {
+					display: none;
+				}
+			}
