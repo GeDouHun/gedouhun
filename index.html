@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>shadowfight3</title>
-		<link rel="icon" href="/gedouhun/网页头图.jpg" type="image/jpg">
-		<script src="/gedouhun/jquery-3.7.1.js"></script>
-		<script src="/gedouhun/index.js"></script>
-		<link rel="stylesheet" href="/gedouhun/index.style.css" />
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalab">
+		<title>暗影格斗3</title>
+		<link rel="icon" href="img/网页图标.jpg" type="image/jpg">
+		<script src="js/jquery-3.7.1.js"></script>
+		<script src="js/navPadding.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/hamburger.js"></script>
+		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="css/hamburger.css" />
 	</head>
 	<body>
 		<!-- 导航栏 -->
 		<nav>
 			<!-- Logo图 -->
-			<div class="nav-logo">
-			</div>
+			<img src="img/Logo.png" class="Logo" alt="" />			
 			<div class="nav-all">
 				<ul class="nav-main">
-					<li><a href="#" class="jiantou"><span>▶</span>首页</a>
+					<li class="nav-child"><a href="index.html" class="jiantou"><span class="arrow-icon">▶</span>首页</a>
 						<!-- 箭头折叠菜单区域 -->
 						<div class="arrow-toggle-down">
 							<ul>
 								<li>游戏介绍</li>
 								<li>套装推荐</li>
-								<li>下载方式</li>
-								<li>制作人员</li>
+								<li>最近更新</li>
+								<li><a href="messages.html">留言反馈</a></li>
 							</ul>
 						</div>
 					</li>
-					<li><a href="Guides.html" target="_blank">攻略</a></li>
-					<li><a href="Gallery.html" target="_blank">图鉴</a></li>
-					<li><a href="Lore.html" target="_blank">主线</a></li>
-					<li><a href="Storyline.html" target="_blank">剧情</a></li>
+					<li class="nav-child"><a href="Guides.html" target="_blank">攻略</a></li>
+					<li class="nav-child"><a href="Gallery.html" target="_blank">图鉴</a></li>
+					<li class="nav-child"><a href="Storyline.html" target="_blank">剧情</a></li>
+					<li class="nav-child"><a href="Sync.html" target="_blank">同步器</a></li>
 				</ul>
 			</div>
 				<!-- 汉堡菜单图标（右侧） -->
@@ -43,8 +45,8 @@
 						<ul>
 							<li><a href="Guides.html" target="_blank">攻略</a></li>
 							<li><a href="Gallery.html" target="_blank">图鉴</a></li>
-							<li><a href="Lore.html" target="_blank">主线</a></li>
 							<li><a href="Storyline.html" target="_blank">剧情</a></li>
+							<li><a href="Sync.html" target="_blank">同步器</a></li>
 						</ul>
 					</div>
 				</ul>
@@ -60,12 +62,112 @@
 				</div>
 			</div> -->
 		</nav>
-		<img src="/gedouhun/banner.png" alt="" />
-		<div class="text">
+		<img src="img/banner.png" alt="" />
+		<div class="text text1">
 			<h3>游戏介绍</h3>
-			由Nekki公司制作的一款拟真格斗游戏，游戏画面精美，动作流畅美观。在游戏中，总共有三个派系，你可以收集这三个派系的装备来变得更强大。
+			《暗影格斗3 Shadow Fight 3》是一款风靡全球170多个国家地区的3D拟真格斗手游。集合了冷兵器格斗、RPG剧情、武器收藏、决斗对战等多种元素特色。格斗家们通过RPG和实战对抗来不断磨练自己，创造独属于你的格斗流派和战斗风格，唤醒对胜利的渴望。
+			<p>游戏特色：</p>
+			<p>国服正版，稳定流畅</p>
+			<p>创造属于你的格斗风格（三大阵营，三种武器战斗流派）</p>
+			<p>暗影能量改变战斗进程（获得暗影能量，使用暗影技能）</p>
+			<p>真实的画面和打击感（3D画面、逼真物理效果，真实打击反馈）</p>
+			<p>冷兵器爱好者的狂欢（武器、盔甲、护具实时改变外观和战斗风格）</p>
+	</div>
+	<div class="text text2">
+		<h3>套装推荐</h3>
+		
+		
+	</div>
+	<div class="text text3">
+		<h3>最近更新</h3>
+		
+	</div>
+	
+	<!-- <footer>
+		访问人数：<span class="visiters"></span>人 
+		<ul>
+			<li><a href="Guides.html" target="_blank">攻略</a></li>
+			<li><a href="Gallery.html" target="_blank">图鉴</a></li>
+			<li><a href="Lore.html" target="_blank">主线</a></li>
+			<li><a href="Storyline.html" target="_blank">剧情</a></li>
+		</ul>
+	</footer> -->
+	
+	<!-- 在<body>结束前添加 -->
+	<footer class="site-footer">
+	    <div class="footer-container">
+	        <!-- 左区：网站信息 -->
+	        <div class="footer-section">
+	            <h4 class="footer-title">格斗魂</h4>
+	            <p class="footer-desc">专注格斗游戏攻略与社区<br>为格斗家提供最实用的战斗指南</p>
+	        </div>
+	        
+	        <!-- 中区：快速链接 -->
+	        <div class="footer-section">
+	            <h4 class="footer-title">导航</h4>
+	            <ul class="footer-links">
+	                <li><a href="" class="footer-link">主线攻略</a></li>
+	                <li><a href="" class="footer-link">活动专区</a></li>
+	                <li><a href="" class="footer-link">突袭攻略</a></li>
+	                <li><a href="messages.html" class="footer-link">留言板</a></li>
+	            </ul>
+	        </div>
+	        
+	        <!-- 右区：联系与声明 -->
+	        <div class="footer-section">
+	            <h4 class="footer-title">联系与合作</h4>
+	            <ul class="footer-links">
+	                <li><a href="" class="footer-link">联系我们</a></li>
+	                <li>QQ邮箱：3131516204@qq.com</li>
+	            </ul>
+	            
+	            <!-- 社交媒体图标 -->
+	            <div class="social-links">
+	                <a href="https://space.bilibili.com/1750180902?spm_id_from=333.1007.0.0" class="social-icon bilibili" target="_blank" title="bilibili">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						    <!-- 电视主体下移3像素 -->
+						    <rect x="4" y="9" width="16" height="12" rx="2"></rect>
+						    <!-- 天线也相应下移 -->
+						    <path d="M7,6 L8,9"></path>
+						    <path d="M17,6 L16,9"></path>
+						    <!-- 眼睛（两个圆点） -->
+						    <circle cx="8" cy="14" r="1"></circle>
+						    <circle cx="16" cy="14" r="1"></circle>
+						    <!-- 笑嘴（圆弧） -->
+						    <path d="M10,17 Q12,19 14,17"></path>
+						</svg>
+					</a>
+	               <!-- <a href="#" class="social-icon" title="QQ群">👥</a> -->
+	                <a href="https://mail.qq.com/" class="social-icon" target="_blank" title="QQ邮箱">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+						    <polyline points="22,6 12,13 2,6"></polyline>
+						</svg>
+					</a>
+	            </div>
+	        </div>
+	    </div>
+	    
+	    <!-- 底部版权栏 -->
+	    <div class="footer-bottom">
+	        <div class="copyright">
+	            © 2025-10 格斗魂. 网站开源，禁止商用. 
+	            <span class="separator">|</span>
+	            本网站为玩家自制，与游戏官方无关
+	        </div>
+	        <div class="tech-info">
+	            <span>感谢 DeepSeek 的大力支持</span>
+	            
+	        </div>
+	    </div>
+		
+		
+		
+		
+		
+		
+		
+		
+	</footer>
 	</body>
-
 </html>
-
-
