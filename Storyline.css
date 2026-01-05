@@ -1,0 +1,233 @@
+	/* 全局样式 */
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				background-color: #1a1a2e;
+			}
+			/* 导航栏整体设置 */
+			nav {
+				top: 0;
+				z-index: 5;
+				position: fixed;
+				height: 80px;
+				width: 100%;
+				background-color: #1a1a2e;
+			}
+			/* 统一背景颜色 */
+			nav * {
+				background-color: #1a1a2e;
+			}
+			/* logo图设置 */
+			.Logo {
+				height: 80px;
+				width: 180px;
+				position: absolute;
+			}
+			/* 设置导航条容器 */
+			.nav {
+				position: relative;
+				
+			}
+			/* 导航条横向排列 */
+			.nav>ul {
+				height: 80px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.nav>ul>li {
+				margin: 25px 75px;
+			}
+			/* 设置超链接 */
+			.nav a {
+				color: #f7f7f7;
+				font-size: 30px;
+				font-family: '楷体';
+				text-shadow: 1px 2px 2px gray;
+				text-decoration: none;
+			}
+			/* 设置鼠标悬浮样式 */
+			.nav a:hover {
+				color: #25edff;
+			}
+			/* 容器整体设置 */
+			.text-all * {
+				color: #f7f7f7;
+			}
+			/* 防止贴边 */
+			.Story{
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			.Adventure{
+				margin-top: 15px;
+				margin-bottom: 45px;
+			}
+			/* 设置标题 */
+			.tit {
+				width: 120px;
+				font-size: 30px;
+				margin: 5px 0 5px 60px;
+			}
+			.tit:hover{
+				cursor: pointer;
+				color: #25edff;
+			}
+			.t1{
+				padding: 95px 0 0 0;/* 避免和导航条重叠 */
+			}
+			/* 设置文本容器 */
+			.text-main {
+				height: 600px;
+				margin-left: 50px;
+				margin-right: 50px;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: nowrap;
+				position: relative;
+				border-radius: 20px;
+				border: 2px solid #55aaff;
+				background-color: #2a2a4f;
+			}
+			/* 保证背景颜色覆盖 */
+			.text-main *{
+				background-color: #2a2a4f;
+			}
+			/* 设置中间剧情文本容器 */
+			.Story-text,.Adventure-text{
+				width: 80%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 0 20px;
+			}
+			/* 剧情的文本容器设置 */
+			.text-container{
+				width: 100%;
+				height: 33.3%;
+				display: flex;
+				position: relative;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+			/* 定位剧情章节标题 */
+			.text-container>li{
+				width: 60%;
+				height: 100%;
+				margin: 0 20%;
+				font-size: 22px;
+				display: flex;
+				padding: 0 25px;
+				position: relative;
+			}
+			/* 设置章节标题样式 */
+			.text-container .first-chapter{
+				height: 50px;
+				top: -50px;
+				left: -20%;
+				font-weight: bold;
+				color: #55aaff;
+				position: absolute;
+				font-size: 30px;
+			}
+			/* 页码定位 页码样式设置 */
+			.text-container .pages{
+				right: 0;
+				bottom: -95%;
+				position: absolute;
+				font-size: 30px;
+			}
+			/* 设置垫子盒子1高 */
+			.d1{
+				width: 100%;
+				height: 18.3%;
+			}
+			/* 设置垫子盒子2高 */
+			.d2{
+				width: 100%;
+				height: 33.4%;
+			}
+			/* 目录标题设置 */
+			.chapter-index{
+				width: 100%;
+				height: 15%;
+				font-size: 36px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-family: '楷体';
+				user-select: none;
+			}
+			/* 目录标题鼠标悬浮样式 */
+			.chapter-index span:hover{
+				cursor: pointer;
+				color: #25edff;
+			}
+			/* 上一页下一页容器 */
+			.revious,.next{
+				width: 80%;
+				height: 18%;
+				display: flex;
+				font-size: 30px;
+				user-select: none;
+				flex-direction: row;
+				align-items: center;
+				writing-mode: vertical-lr;/* 文字垂直排列 */
+			}
+			/* 上一页下一页鼠标悬浮样式 */
+			.revious:hover,.next:hover{
+				cursor: pointer;
+				color: #25edff;
+			}
+			/* 设置两边容器 */
+			.con {
+				width: 10%;
+				display: flex;
+				align-items: center;
+				border-radius: 20px;
+				justify-content: center;
+			}
+			/* 左边容器布局 */
+			.left-con {
+				flex-direction: row;
+			}
+			.left-con .revious {
+				order: 2;
+			}
+			.left-con .turn-page {
+				order: 1;
+			}
+			/* 右边容器布局 */
+			.right-con {
+				flex-direction: row;
+			}
+			.right-con .next {
+				order: 1;
+			}
+			.right-con .turn-page {
+				order: 2;
+			}
+			/* 上一页 */
+			.revious {
+				justify-content: center;
+			}
+			/* 下一页 */
+			.next {
+				justify-content: center;
+			}
+			/* 翻页按钮设置 */
+			.turn-page {
+				width: 20%;
+				height: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: none;
+				font-size: 30px;
+				border-radius: 60px;
+			}
+			
