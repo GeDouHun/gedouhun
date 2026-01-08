@@ -5,7 +5,7 @@
 		<title>暗影格斗3剧情</title>
 		<link rel="icon" href="网页头图.jpg" type="image/jpg">
 		<script src="jquery-3.7.1.js"></script>
-		<script src="Stroyline.js"></script>
+		<script src="Storyline.js"></script>
 		<link rel="stylesheet" href="Storyline.css" />
 	</head>
 	<body>
@@ -25,41 +25,91 @@
 			<div class="Story text-main">
 				<div class="left-con con">
 					<button class="left-page turn-page"><</button>
-					<h3 class="Story-revious revious">上一页</h3>
+					<h3 class="Story-revious revious"><span class="shang">上一页</span></h3>
 				</div>
 				<div class="Story-text">
 					<h3 class="Story-chapter-index chapter-index"><span>目录</span></h3>
+					<!-- 垫子容器1 用于占用空间，达到美观布局 -->
 					<div class="d1"></div>
+					<!-- 
+					目录容器 第一个li标签容器
+					页码容器 <span class="pages"></span>  用于记录页码： number
+					章节标题容器 <span class="first-chapter chapter"></span>
+					文本容器 <span class="text"></span>
+					强调字体容器 <span class="text-special"></span>
+					战斗中的对话 <span class="text-fight"></span>
+					-->
 					<ul class="text-container">
-						<!-- <li>放目录</li> -->
-						<li>
-							<span class="first-chapter chapter">第一章</span>
-							萨奇：欢迎你，新人
-							
-						</li>
+						<li>放目录</li>
 						<span class="pages">第 <span>number</span> 页</span>
 						<li>
-							<span class="first-chapter chapter">第一章</span>
-							琼：你好，暗影后裔
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">萨奇：欢迎来到<span class="text-special">暗影小队</span>，战士！<br />这是整个<span class="text-special">军团</span>中的<span class="text-special">第一支</span>暗影部队<br />（特殊回答：是，先生！）</span>
 						</li>
 						<li>
-							<span class="first-chapter chapter">第一章</span>
-							伊图：居合斩
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">奇士摩：我叫<span class="text-special">奇士摩</span>。我们将一起完成任务！准备好战斗了吗？<br />我来<span class="text-special">测试</span>你一下</span>
 						</li>
 						<li>
-							<span class="first-chapter chapter">第一章</span>
-							马库斯：你是谁？
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（引导：格斗！<br /><span class="text-special">攻击{拳图标}</span>奇士摩<br /><span class="text-special">踢击{脚图标}</span>奇士摩）</span>
 						</li>
 						<li>
-							<span class="first-chapter chapter">第一章</span>
-							奇士摩：来啊，打我
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">奇士摩：好了，我们来认认真真地打一场吧!</span>
 						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（引导：使用不同的攻击方式！）</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（待玩家战胜奇士摩后...）<br />萨奇：你学得很快。我们来看看你穿上我们的战队装备会怎样。<br /><span class="text-special">穿戴</span>你的装备。</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（引导：按照指示打开装备页面，并按照指示穿戴训练服和战斗长剑）</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（待玩家完成穿戴装备的引导后...）<br />萨奇：非常棒。奇士摩<span class="text-special">已经在等</span>你了，就在竹林里的前哨附近。</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（进入竹林战斗，第一回合）<br />奇士摩：在本次测试中，<span class="text-special">不要动</span>，格挡我的攻击。<br />（格斗！）</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">【引导：站立不动来格挡（格挡<span class="text-special">0/3</span>）次攻击<br />玩家每成功格挡一次，“0”+1】</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text"><span class="text-fight">奇士摩：不错！现在试试攻击我！</span></span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（第二回合，格斗！）</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text">（引导：控制{拳图标}进行重击）</span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text"></span>
+						</li>
+						<li>
+							<span class="first-chapter chapter">新手引导（第一章）</span>
+							<span class="text"></span>
+						</li>
+						
 					</ul>
+					<!-- 垫子容器2 用于垫高text-container容器，避免文本位置显示过低，同时使整个text-container容器垂直居中 -->
 					<div class="d2"></div>
 				</div>
 
 				<div class="right-con con">
-					<h3 class="Story-next next">下一页</h3>
+					<h3 class="Story-next next"><span class="xia">下一页</span></h3>
 					<button class="right-page turn-page">></button>
 				</div>
 
@@ -88,5 +138,4 @@
 			</div>
 		</div>
 	</body>
-
 </html>
