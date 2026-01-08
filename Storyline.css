@@ -119,10 +119,18 @@
 				width: 60%;
 				height: 100%;
 				margin: 0 20%;
-				font-size: 22px;
-				display: flex;
 				padding: 0 25px;
 				position: relative;
+				display: flex;
+				align-items: center;
+				font-size: 22px;
+			}
+			/* 设置剧情字体 */
+			.text-container li:not(span){
+			  font-family:
+			    "SimSun",               /* 宋体适合长文本阅读 */
+			    "PingFang SC",
+			    serif;
 			}
 			/* 设置章节标题样式 */
 			.text-container .first-chapter{
@@ -139,7 +147,11 @@
 				right: 0;
 				bottom: -95%;
 				position: absolute;
-				font-size: 30px;
+				font-size: 30px; 
+			}
+			/* 设置特殊字体样式 */
+			.text-special{
+				color: #ffaa55;
 			}
 			/* 设置垫子盒子1高 */
 			.d1{
@@ -178,8 +190,16 @@
 				align-items: center;
 				writing-mode: vertical-lr;/* 文字垂直排列 */
 			}
+			/* 避免鼠标悬浮样式范围过大 */
+			.shang,.xia{
+				width: 30px;
+				height: 115px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 			/* 上一页下一页鼠标悬浮样式 */
-			.revious:hover,.next:hover{
+			.shang:hover,.xia:hover{
 				cursor: pointer;
 				color: #25edff;
 			}
@@ -229,5 +249,22 @@
 				border: none;
 				font-size: 30px;
 				border-radius: 60px;
+			}
+			
+			/* 添加到现有CSS的最后 */
+			
+			/* 页码样式 */
+		
+			/* 当pages隐藏时的样式 */
+			.text-container .pages[style*="display: none"] {
+			    opacity: 0;
+			    visibility: hidden;
+			}
+			
+			/* 当pages显示时的样式 */
+			.text-container .pages[style*="display: block"],
+			.text-container .pages:not([style]) {
+			    opacity: 1;
+			    visibility: visible;
 			}
 			
