@@ -5,137 +5,142 @@
 		<title>暗影格斗3剧情</title>
 		<link rel="icon" href="网页头图.jpg" type="image/jpg">
 		<script src="jquery-3.7.1.js"></script>
+		<script src="hamburger.js"></script>
 		<script src="Storyline.js"></script>
 		<link rel="stylesheet" href="Storyline.css" />
+		<link rel="stylesheet" href="hamburger.css" />
+		<!-- <link rel="stylesheet" href="工程级重构的与js同步的CSS升级.css" /> -->
 	</head>
 	<body>
-		<nav>
-
-			<div class="nav">
-				<img src="Logo.png" alt="" class="Logo" />
-				<ul>
-					<li><a href="index.html">首页</a></li>
-					<li><a href="Guides.html">攻略</a></li>
-					<li><a href="Gallery.html">图鉴</a></li>
-				</ul>
-			</div>
-		</nav>
 		<div class="text-all">
-			<h2 class="tit t1">主线剧情</h2>
-			<div class="Story text-main">
-				<div class="left-con con">
-					<button class="left-page turn-page"><</button>
-					<h3 class="Story-revious revious"><span class="shang">上一页</span></h3>
+			
+				<!-- 响应式：剧情切换按钮 -->
+				<div class="mobile-switch-bar">
+				  <button data-target="Story" class="is-active Story-button">主线剧情</button>
+				  <button data-target="Adventure" class="Adventure-button">冒险剧情</button>
 				</div>
-				<div class="Story-text">
-					<h3 class="Story-chapter-index chapter-index"><span>目录</span></h3>
-					<!-- 垫子容器1 用于占用空间，达到美观布局 -->
-					<div class="d1"></div>
-					<!-- 
-					目录容器 第一个li标签容器
-					页码容器 <span class="pages"></span>  用于记录页码： number
-					章节标题容器 <span class="first-chapter chapter"></span>
-					文本容器 <span class="text"></span>
-					强调字体容器 <span class="text-special"></span>
-					战斗中的对话 <span class="text-fight"></span>
-					-->
-					<ul class="text-container">
-						<li>放目录</li>
-						<span class="pages">第 <span>number</span> 页</span>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">萨奇：欢迎来到<span class="text-special">暗影小队</span>，战士！<br />这是整个<span class="text-special">军团</span>中的<span class="text-special">第一支</span>暗影部队<br />（特殊回答：是，先生！）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">奇士摩：我叫<span class="text-special">奇士摩</span>。我们将一起完成任务！准备好战斗了吗？<br />我来<span class="text-special">测试</span>你一下</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（引导：格斗！<br /><span class="text-special">攻击{拳图标}</span>奇士摩<br /><span class="text-special">踢击{脚图标}</span>奇士摩）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">奇士摩：好了，我们来认认真真地打一场吧!</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（引导：使用不同的攻击方式！）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（待玩家战胜奇士摩后...）<br />萨奇：你学得很快。我们来看看你穿上我们的战队装备会怎样。<br /><span class="text-special">穿戴</span>你的装备。</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（引导：按照指示打开装备页面，并按照指示穿戴训练服和战斗长剑）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（待玩家完成穿戴装备的引导后...）<br />萨奇：非常棒。奇士摩<span class="text-special">已经在等</span>你了，就在竹林里的前哨附近。</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（进入竹林战斗，第一回合）<br />奇士摩：在本次测试中，<span class="text-special">不要动</span>，格挡我的攻击。<br />（格斗！）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">【引导：站立不动来格挡（格挡<span class="text-special">0/3</span>）次攻击<br />玩家每成功格挡一次，“0”+1】</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text"><span class="text-fight">奇士摩：不错！现在试试攻击我！</span></span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（第二回合，格斗！）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text">（引导：控制{拳图标}进行重击）</span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text"></span>
-						</li>
-						<li>
-							<span class="first-chapter chapter">新手引导（第一章）</span>
-							<span class="text"></span>
-						</li>
-						
+				
+			<nav>
+				<div class="nav">
+					<img src="Logo.png" alt="" class="Logo" />
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="Guides.html">攻略</a></li>
+						<li><a href="Gallery.html">图鉴</a></li>
 					</ul>
-					<!-- 垫子容器2 用于垫高text-container容器，避免文本位置显示过低，同时使整个text-container容器垂直居中 -->
-					<div class="d2"></div>
 				</div>
-
-				<div class="right-con con">
-					<h3 class="Story-next next"><span class="xia">下一页</span></h3>
-					<button class="right-page turn-page">></button>
+				
+				<div class="hamburger-menu">
+					<ul class="hamburger">
+						<li class="whiteline"></li>
+						<li class="whiteline"></li>
+						<li class="whiteline"></li>
+						<div class="hamburger-toggle">
+							<ul>
+								<li><a href="Guides.html" target="_blank">攻略</a></li>
+								<li><a href="Gallery.html" target="_blank">图鉴</a></li>
+								<li><a href="Storyline.html" target="_blank">剧情</a></li>
+								<li><a href="Sync.html" target="_blank">同步器</a></li>
+							</ul>
+						</div>
+					</ul>
 				</div>
-
-			</div>
-			<h2 class="tit t2">冒险剧情</h2>
-			<div class="text-main Adventure">
-				<div class="left-con con">
-					<button class="left-page turn-page"><</button>
-					<h3 class="Adventure-revious revious">上一页</h3>
-				</div>
-				<div class="Adventure-text">
+				
+			</nav>
+					<!-- 剧情页面 -->
+					<!-- 主线标题 -->
+					<h2 class="tit t1">主线剧情</h2>
 					
-					<h3 class="Adventure-chapter-index chapter-index"><span>目录</span></h3>
-					<div class=""></div>
-					<ul class="text-container">
-						<li>放目录</li>
-						<li>放冒险剧情</li>
-					</ul>
-					<div class=""></div>
+					<div class="Story text-main">
+						
+						<!-- 左边的翻页容器 -->
+						<div class="left-con con">
+							<!-- 左翻页按钮 -->
+							<button class="left-page turn-page" hidden>&lt;</button>
+							<!-- “上一页”容器 -->
+							<h3 class="revious" hidden>
+								<!-- 单独取出文本，便于设置边距，字体垂直方向排列，同时防止撑开容器 -->
+								<span class="shang">
+									上一页
+								</span>
+							</h3>
+						</div>
+						
+						<div class="Story-view story-view">
+							<!-- 主线剧情：章节目录标题 -->
+							<h3 class="Story-chapter-index chapter-index">
+								目录
+							</h3>
+							<hr class="split"/><!-- 标题和下面的容器之间的分割线 -->
+							<!-- 主线剧情：存放章节目录容器 -->
+							<div class="Story-index story-index"></div>
+							<!-- 主线剧情：正文分页 -->
+							<div class="Story-pages story-pages"></div>
+							<!-- 主线剧情：章节页码页码目录（JS 自动注入内容） -->		
+							<div class="Story-page-index page-index-container" style="display: none;">	
+								<ul class="page-list">
+									<!-- 章节页码目录的页码将在此处动态生成 -->
+								</ul>
+							</div>
+							<!-- 页码显示 -->
+							<div class="story-pagination">第<span class="page-number"></span>页</div>
+						</div>
+						<!-- 右边的翻页容器 -->
+						<div class="right-con con">
+							<!-- “下一页”容器 -->
+							<h3 class="next" hidden>
+								<!-- 单独取出文本，便于设置边距，字体垂直方向排列，同时防止撑开容器 -->
+								<span class="xia">
+									下一页
+								</span>
+							</h3>
+							<!-- 右翻页按钮 -->
+							<button class="right-page turn-page" hidden>&gt;</button>
+						</div>
+					</div>
+					<!-- 冒险剧情 -->
+					<h2 class="tit t2">冒险剧情</h2>
+					<div class="Adventure text-main">
+						<!-- 和主线剧情完全相同的左翻页容器结构 -->
+					    <div class="left-con con">
+					        <button class="left-page turn-page" hidden>&lt;</button>
+					        <h3 class="Adventure-revious revious" hidden>
+								<span class="shang">
+									上一页
+								</span>
+							</h3>
+					    </div>
+						
+					    <div class="Adventure-view story-view">
+							<!-- 冒险剧情：章节目录标题 -->
+					        <h3 class="Adventure-chapter-index chapter-index">
+					            <span class="ci-dir">目录</span>
+					        </h3>
+							<hr class="split"/><!-- 标题和下面的容器之间的分割线 -->
+					        <!-- 冒险剧情：存放章节目录容器 -->
+					        <div class="Adventure-index story-index"></div>
+							<!-- 冒险剧情：正文分页 -->
+					        <div class="Adventure-pages story-pages"></div>
+							<!-- 冒险剧情：页码目录（JS 自动注入内容） -->
+							<div class="Adventure-page-index page-index-container">
+								<ul class="page-list">
+									
+								</ul>
+							</div>
+					        <!-- 页码显示 -->
+					        <div class="story-pagination">第<span class="page-number"></span>页</div>
+					    </div>
+					<!-- 和主线剧情完全相同的右翻页容器结构 -->
+					    <div class="right-con con">
+					        <h3 class="Adventure-next next" hidden>
+								<span class="xia">
+									下一页
+								</span>
+							</h3>
+					        <button class="right-page turn-page" hidden>&gt;</button>
+					    </div>
+						
+					</div>
 				</div>
-				<div class="right-con con">
-					<h3 class="Adventure-next next">下一页</h3>
-					<button class="right-page turn-page">></button>
-				</div>
-
-			</div>
-		</div>
 	</body>
 </html>
