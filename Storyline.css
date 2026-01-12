@@ -1,270 +1,647 @@
-	/* 全局样式 */
-			* {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				background-color: #1a1a2e;
+/* *********************************************************
+ * Storyline.css（最终整合版）
+ * ✅ 无需修改 HTML 结构
+ * ✅ 左右箭头不会跑出容器
+ * ✅ 页码固定在容器右下角
+ * ✅ 顶部“目录 第一章（1/24）”排版
+ * ✅ 目录页：章节标题 + 共X页（间距更美观）
+ * ✅ 移动端：正文变宽、按钮浮动、不再一行三四个字
+ * ********************************************************* */
+
+/* 颜色定义；采用变量，方便后期更改 */
+:root {
+	--bg-global: #1a1a2e;/* 全局背景颜色 */
+	--bg-text: #2a2a4f;/* 文本背景颜色 */
+	--color-border: #55aaff;/* 边框颜色 */
+	--color-text: #f7f7f7;/* 文本颜色 */
+	--color-hover: #25edff;/* 文本悬浮字体颜色 */
+	--color-shadow: #7e7b7f;/* 文本阴影颜色 */
+	--color-chapter-hover: #04ff00; /* 标题悬浮字体颜色 */
+	--color-split: #00aaff;/* 标题与其下面容器的分割线颜色 */
+	--color-special: #ffaa55;/* 强调文本 特殊字体颜色 */
+	--color-fight: #aaff55;
+	/* 隐藏菜单颜色 */
+	--color-toggle:#aa55ff;/* 字体颜色 */
+	--color-toggle-border:#4d47ff;/* 边框颜色 */
+	--color-toggle-hover: #55ffaa;/* 鼠标悬浮字体颜色 */
+	--color-toggle-bg: #2a1a3e;/* 背景颜色 */
+	/* 备用颜色: #2a38ff;*/ 
+	/* 设置章节标题颜色 */
+	/* Story 章节配色（8种：1~6 + 第七章A/B；无第八章） */
+	.Story [chapter-id="ch1"] { --chapter-color:  #FF5A3D;}
+	.Story [chapter-id="ch2"] { --chapter-color:  #FFD166;}
+	.Story [chapter-id="ch3"] { --chapter-color:  #C77DFF;}
+	.Story [chapter-id="ch4"] { --chapter-color:  #FF4D9D;}
+	.Story [chapter-id="ch5"] { --chapter-color:  #B08968;}
+	.Story [chapter-id="ch6"] { --chapter-color: #2EC4B6; }
+	.Story [chapter-id="ch7Ⅰ"] { --chapter-color: #5E60CE; }
+	.Story [chapter-id="ch7Ⅱ"] { --chapter-color: #A3A380; }
+	/* 变形：层面部分 */
+	.Story [chapter-id="qcⅠ"] { --chapter-color:  #FFD166;}
+	.Story [chapter-id="qcⅡ"] { --chapter-color:  #FFD166;}
+	.Story [chapter-id="qcⅢ"] { --chapter-color:  #FFD166;}
+	.Story [chapter-id="ytcⅠ"] { --chapter-color:  #C77DFF;}
+	.Story [chapter-id="ytcⅡ"] { --chapter-color:  #C77DFF;}
+	.Story [chapter-id="ytcⅢ"] { --chapter-color:  #C77DFF;}
+	.Story [chapter-id="mcⅠ"] { --chapter-color:  #FF5A3D;}
+	.Story [chapter-id="mcⅡ"] { --chapter-color:  #FF5A3D;}
+	.Story [chapter-id="mcⅢ"] { --chapter-color:  #FF5A3D;}
+	/* Adventure 章节配色（5种） */
+	.Adventure [chapter-id="a1"] { --chapter-color: #C77DFF; }
+	.Adventure [chapter-id="a2"] { --chapter-color: #FF5A3D; }
+	.Adventure [chapter-id="a3"] { --chapter-color: #FF4D9D; }
+	.Adventure [chapter-id="a4"] { --chapter-color: #2EC4B6; }
+	.Adventure [chapter-id="a5"] { --chapter-color: #FFD166; }
+}
+/* 设置引入的汉堡菜单样式 */
+.hamburger{
+	margin-top: 20px;
+}
+/* 全局样式 */
+/* 页面 */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: var(--bg-global);
+	color: var(--color-text);
+}
+/* 导航栏整体设置 */
+nav {
+	top: 0;
+	z-index: 5;
+	display: flex;
+	justify-content: flex-end;
+	position: sticky;
+	height: 80px;
+	width: 100%;
+	background-color: #1a1a2e;
+}
+/* 统一背景颜色 */
+nav * {
+	background-color: #1a1a2e;
+}
+/* logo图设置 */
+.Logo {
+	height: 80px;
+	width: 180px;
+	position: absolute;
+}
+/* 设置导航条容器 */
+.nav {
+	position: relative;
+				
+}
+/* 导航条横向排列 */
+.nav>ul {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.nav>ul>li {
+	margin: 25px 75px;
+}
+/* 设置超链接 */
+.nav a {
+	color: #f7f7f7;
+	font-size: 30px;
+	font-family: '楷体';
+	text-shadow: 1px 2px 2px gray;
+	text-decoration: none;
+}
+/* 设置鼠标悬浮样式 */
+.nav a:hover {
+	color: var(--color-hover);
+}
+
+/* 容器标题  主线剧情/冒险剧情 */
+.tit{
+	font-size: 30px;
+	margin-left: clamp(16px, 7vw, 60px);
+}
+
+/* 主容器 */
+.Story.text-main,
+.Adventure.text-main {
+	height: 600px;
+	margin: clamp(8px, 2.5vw, 20px) clamp(12px, 5vw, 50px) clamp(10px, 3vw, 36px) clamp(12px, 5vw, 50px);
+	display: flex;
+	border-radius: 20px;
+	border: 2px solid var(--color-border);
+	background-color: var(--bg-text);
+	position: relative;
+	/* 页码/移动端按钮定位参照 */
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+/* 全局兜底颜色 */
+.Story.text-main *,
+.Adventure.text-main * {
+	background-color: var(--bg-text);
+	color: var(--color-text);
+	box-sizing: border-box;
+}
+.left-page,
+.right-page {
+  visibility: hidden;
+}
+
+/* 左右容器（大屏：固定侧栏宽度） */
+.con {
+	width: auto;
+	/* 覆盖原 10% */
+	flex: 0 0 80px;
+	/* 固定侧栏，避免缩小挤出去 */
+	min-width: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+}
+/* 左右翻页容器 */
+.left-con,
+.right-con {
+	flex-direction: row;
+}
+
+/* 上一页 / 下一页（竖排） */
+.revious,
+.next {
+	margin: 0;/* 防止 上一页 / 下一页 撑开容器 */
+	writing-mode: vertical-lr;
+	font-size: 30px;
+	user-select: none;
+}
+/* 箭头按钮 */
+.turn-page {
+	width: 30px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background-color: transparent;
+	font-size: 30px;
+	color: var(--color-text);
+}
+.turn-page:hover,
+.shang:hover,
+.xia:hover {
+	color: var(--color-hover);
+	cursor: pointer;
+}
+/* 中间内容 */
+.story-view {
+	width: auto;/* 覆盖原 80% */
+	flex: 1 1 auto;
+	min-width: 0;/* 防止内容撑爆导致两侧挤出去 */
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+}
+/* 顶部：目录标题（人性化显示） */
+/* Story 顶部差异位（暂空） */
+.Story-chapter-index {}
+
+/* Adventure 顶部差异位（暂空） */
+.Adventure-chapter-index {}
+.chapter-index {
+	height: 10%;
+	min-width: 56px;
+	margin: 3% 0 0.5% 0;
+	font-size: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 楷体;
+	gap: .5em;
+	/* 半个字间距 */
+	user-select: none;
+	cursor: pointer;
+}
+/* 设置章节标题鼠标悬浮样式 */
+.chapter-index:hover{
+	z-index: 3;
+	border: none;
+	transform: translateY(-2.5px);
+	transition:transform 0.15s ease;
+	text-shadow: 1px 2px 2px var(--color-shadow); 
+	color: var(--color-hover);
+}
+
+.chapter-index .ci-dir {
+	opacity: .95;
+}
+.chapter-index .ci-ch {
+	color: var(--color-border);
+}
+.chapter-index .ci-info {
+	opacity: .9;
+}
+/* 分割线设置 */
+.split{
+	width: 100%;
+	height: 2px;
+	border-bottom: 2px solid var(--color-border);
+}
+/* 章节目录页（Story / Adventure 共用 每章一行：标题 + 共X页） */
+/* Story/Adventure章节目录差异位 */
+.Story-index .index-item{width: 50%;}
+.Adventure-index .index-item{width: 30%;}
+.story-index {
+	width: 100%;
+	height: 100%;
+	gap: 12px;
+	margin: 30px 0;
+	padding: 0 16px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 30px;
+}
+/* 章节目录条目 *//* 统一设置 */
+.index-item {
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	transition:transform 0.15s ease;
+	border: 2px solid transparent;/* border占位,防抖动 */
+}
+/* 设置内部 章节标题 字体样式 */
+.index-item>span{
+	border-radius: 20px;/* 确保圆角覆盖 */
+	width: fit-content;/* 设置宽度等于字体宽度 */
+	color: var(--chapter-color) !important;
+}
+/* 悬浮样式 */
+.index-item:hover {
+	border-radius: 8px;
+	border: 2px solid var(--color-border);
+	transform: translateX(2.5px);
+	text-shadow: 1px 2px 2px var(--color-shadow);
+}
+.index-item>span:hover{
+	color: var(--color-hover) !important;
+}
+/* 目录标题：允许继承章节色（JS 会注入 --chapter-color） */
+.index-title {
+	color: var(--chapter-color);
+	font-size: 24px;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 80%;
+}
+/* “共X页”：与标题间留一个字距离 */
+.index-pages {
+	max-width: 20%;
+	font-size: 14px;
+	opacity: 0.7;
+	white-space: nowrap;
+	color: var(--color-text);
+}
+/* （可选）未写内容章节：JS 会加 is-disabled（如果你用了我那版 JS） */
+.story-index .index-item.is-disabled {
+	opacity: .45;
+	cursor: not-allowed;
+}
+/* ===== 正文分页区域 ===== */
+.story-pages {
+	flex: 1 1 auto;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 正文页 */
+.story-page {
+	width: 90%;
+	padding: 0 25px;
+	margin-bottom: 25%;
+	display: flex;
+	align-items: center;/* 文本内容垂直居中 */
+	flex-direction: column;
+	font-size: 22px;
+	font-family: "SimSun", serif;
+	position: relative;
+	overflow-y: auto;
+	--chapter-color: var(--color-border);
+	/* 每页章节色兜底 */
+}
+/* 章节标题 */
+.chapter-title {
+	margin: 4% auto 2.5% 0;/* 调整标题布局 */
+	text-align: left;
+	font-size: 30px;
+	/* 多余溢出部分变为省略号 */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: var(--chapter-color) !important;
+}
+/* 正文排版增强：任何屏幕都更舒服一点 */
+.story-page p {
+	margin: 0;
+	line-height: 1.65;
+	word-break: break-word;
+}
+/* 页码：固定在 Story 容器右下角 */
+.story-pagination {
+	position: absolute;
+	right: 18px;
+	bottom: 14px;
+	font-size: 30px;
+}
+/* 特殊文本 */
+.Story.text-main .text-special {
+	color: var(--color-special) !important;
+}
+.Story.text-main .text-fight {
+	color: var(--color-fight) !important;
+}
+/* 页码目录容器 */
+/* 页码目录 */
+.page-index-container {
+    width: 100%;
+	height: 75%;
+	margin-top: 3.5%;
+	font-size: 28px;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;/* 关键：保证章节页码目录显示完整 */
+    overflow: auto;
+	background-color: var(--bg-text);
+	border-radius: 10px;
+}
+/* 动态生成的页码项目 样式 */
+.page-index-item {
+	padding: 1px;
+	margin: 1px;
+	border-radius: 6px;
+	border: 2px solid transparent;/* border占位,防抖动 */
+	transition: background-color .2s, transform .15s;
+}
+.page-index-item:hover {
+	cursor: pointer;
+	border-color: var(--color-border);
+	border-radius: 8px;
+	color: var(--color-hover);
+	background: rgba(85, 170, 255, 0.08);
+	transform: translateX(2px);
+}
+/* 防闪默认隐藏 */
+.story-pagination {
+  display: none;
+}
+/* 右下角页码设置 */
+.page-num {
+	font-size: 14px;
+	opacity: 0.75;
+	white-space: nowrap;
+}
+/* 目录页码右侧滚动条美化 */
+/* 滚动条宽度 */
+.page-index-container::-webkit-scrollbar,
+.story-index::-webkit-scrollbar {
+	width: 8px;
+}
+/* 滚动条轨道 */
+.page-index-container::-webkit-scrollbar-track,
+.story-index::-webkit-scrollbar-track{
+	background: rgba(85, 170, 255, 0.1);
+	border-radius: 4px;
+}
+/* 滚动条滑块 */
+.page-index-container::-webkit-scrollbar-thumb,
+.story-index::-webkit-scrollbar-thumb{
+	background: #55aaff;
+	border-radius: 4px;
+}
+/* 悬停高亮 */
+.page-index-container::-webkit-scrollbar-thumb:hover,
+.story-index::-webkit-scrollbar-thumb:hover{
+	background: #66ccff;
+}
+/* 设置主线剧情/冒险剧情切换按钮
+  用于移动端响应式*/
+  .mobile-switch-bar{
+	  width: 120px;
+	  height: 120px;
+	  display: flex;
+	  flex-direction: column;
+	  border-radius: 8px;
+	  border: 2px solid var(--color-toggle-border);
+  }
+  .Story-button{
+	  border-top-left-radius: 20px;
+	  border-top-right-radius: 20px;
+  }
+  .Adventure-button{
+	  border-top: 2px solid var(--color-toggle-border) !important;
+	  border-bottom-left-radius: 20px;
+	  border-bottom-right-radius: 20px;
+  }
+  .mobile-switch-bar button{
+	  width: 120px;
+	  height: 60px;
+	  font-size: 24px;
+	  color: var(--color-toggle);
+	  border: none;
+  } 
+  .mobile-switch-bar button:hover{
+	  cursor: pointer;
+	  color: var(--color-toggle-hover);
+  }
+/* *********************************************************
+   - 移动端响应式
+   - 768px 及以下：按钮浮动覆盖，不占宽度；正文全宽；标题回归正常流
+   ********************************************************* */
+   /* 多种屏幕大小分层响应式 */
+@media (max-width: 1400px){
+	.Story-index .story-index{
+			   width: 66%;
+	}
+	.Story-index .index-item{
+				text-align: center;
+			   font-size: 28px;
+	}
+}
+@media (max-width: 1200px){
+	.Story-index .story-index{
+			   width: 64%;
+	}
+	.Story-index .index-item{
+				text-align: center;
+			   font-size: 26px;
+	}
+}
+@media (max-width: 996px){
+	   .Story-index .story-index{
+		   width: 62%;
+	   }
+	   .Story-index .index-item{
+			text-align: center;
+		   font-size: 24px;
+	   }
+   }
+@media (max-width: 768px) {
+	.Story.text-main,
+	.Adventure.text-main {
+		height: 92vh;
+		margin: clamp(10px, 4.5vw, 45px);
+		overflow: hidden;
+	}
+	/* 左右按钮浮动，不占 flex 宽度 */
+	.con {
+		flex: 0 0 auto;
+		width: auto;
+		min-width: 0;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+		background: transparent !important;
+	}
+	.left-con {
+		left: 10px;
+	}
+	.right-con {
+		right: 10px;
+	}
+	/* 手机隐藏竖排“上一页/下一页”，避免占空间 */
+	.revious,
+	.next {
+		display: none;
+	}
+	/* 圆形翻页按钮好点 */
+	.turn-page {
+		width: 44px;
+		height: 44px;
+		border-radius: 999px;
+		border: 1px solid var(--color-border);
+		background: rgba(42, 42, 79, 0.65) !important;
+		font-size: 26px;
+		line-height: 1;
+	}
+	/* 中间内容占满，并留出左右按钮安全区 */
+	.story-view {
+		width: 100%;
+		padding: 0 62px;/* 关键：给浮动按钮留空 */
+	}
+	/* 顶部标题：自适应字号 + 允许换行 */
+	.chapter-index {
+		padding: 6px 12px;
+		font-size: clamp(16px, 5.2vw, 34px);
+		text-align: center;
+		
+	}
+	   /* 正文区域：内容块在两箭头之间居中 */
+	   .story-pages{
+	     height: auto;
+	     flex: 1 1 auto;
+	     display: flex;
+	     align-items: center;/* 让“剧情文本”默认处在箭头同一水平线附近 */
+	     justify-content: center;
+	   }
+	   /* 单页内容：块居中，但内部文字左对齐 */
+	   .story-page{
+	     width: 100%;
+		 height: 80%;
+	     max-width: 680px;
+	     padding: 0 10px;
+	     display: flex;
+	     flex-direction: column;
+	     align-items: center;
+	     justify-content: center;  /* 关键：让正文在箭头水平线附近 */
+	     font-size: clamp(18px, 4.2vw, 22px);
+	   }
+	   /* 章节标题：左对齐 */
+	   .Story.text-main .chapter-title{
+		 max-width: 650%;
+	     text-align: left;
+	     font-size: clamp(18px, 5vw, 28px);
+	   }
+	   .page-num{
+		   font-size: 13px;
+	   }
+	   /* 剧情文本：居中 */
+	   .story-page p{
+	     width: min(100%, 38ch);   /* 控制行宽：避免太宽/太窄 */
+	     text-align: center;         
+	     margin: 0 0 120px 0;
+	     line-height: 1.7;
+	   }
+	/* 页码：字号自适应 */
+	.story-pagination {
+		font-size: clamp(18px, 4.5vw, 26px);
+		right: 12px;
+		bottom: 10px;
+	}
+	/* 目录字号略收缩 */
+	.story-index {
+		padding: 0 12px;
+		font-size: clamp(18px, 4.5vw, 26px);
+	}
+	/* 章节目录项 响应式 */
+	.index-item {
+			border-radius: 12px;
+		}
+		
+		.Adventure-index .index-item{
+			width: 45%;
+			font-size: 22px;
 			}
-			/* 导航栏整体设置 */
-			nav {
-				top: 0;
-				z-index: 5;
-				position: fixed;
-				height: 80px;
-				width: 100%;
-				background-color: #1a1a2e;
+		.index-title {
+			font-size: 18px;
+		}
+		.index-pages {
+			font-size: 13px;
+		}
+		/* 页码目录 */
+		.page-index-container {
+				margin-top: 6%;
+				font-size: 22px;
+				gap: 3px;
 			}
-			/* 统一背景颜色 */
-			nav * {
-				background-color: #1a1a2e;
-			}
-			/* logo图设置 */
-			.Logo {
-				height: 80px;
-				width: 180px;
-				position: absolute;
-			}
-			/* 设置导航条容器 */
-			.nav {
-				position: relative;
+			.page-index-item{
 				
 			}
-			/* 导航条横向排列 */
-			.nav>ul {
-				height: 80px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.nav>ul>li {
-				margin: 25px 75px;
-			}
-			/* 设置超链接 */
-			.nav a {
-				color: #f7f7f7;
-				font-size: 30px;
-				font-family: '楷体';
-				text-shadow: 1px 2px 2px gray;
-				text-decoration: none;
-			}
-			/* 设置鼠标悬浮样式 */
-			.nav a:hover {
-				color: #25edff;
-			}
-			/* 容器整体设置 */
-			.text-all * {
-				color: #f7f7f7;
-			}
-			/* 防止贴边 */
-			.Story{
-				margin-top: 15px;
-				margin-bottom: 15px;
-			}
-			.Adventure{
-				margin-top: 15px;
-				margin-bottom: 45px;
-			}
-			/* 设置标题 */
-			.tit {
-				width: 120px;
-				font-size: 30px;
-				margin: 5px 0 5px 60px;
-			}
-			.tit:hover{
-				cursor: pointer;
-				color: #25edff;
-			}
-			.t1{
-				padding: 95px 0 0 0;/* 避免和导航条重叠 */
-			}
-			/* 设置文本容器 */
-			.text-main {
-				height: 600px;
-				margin-left: 50px;
-				margin-right: 50px;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				flex-wrap: nowrap;
-				position: relative;
-				border-radius: 20px;
-				border: 2px solid #55aaff;
-				background-color: #2a2a4f;
-			}
-			/* 保证背景颜色覆盖 */
-			.text-main *{
-				background-color: #2a2a4f;
-			}
-			/* 设置中间剧情文本容器 */
-			.Story-text,.Adventure-text{
-				width: 80%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				padding: 0 20px;
-			}
-			/* 剧情的文本容器设置 */
-			.text-container{
-				width: 100%;
-				height: 33.3%;
-				display: flex;
-				position: relative;
-				align-items: center;
-				justify-content: center;
-				flex-direction: column;
-			}
-			/* 定位剧情章节标题 */
-			.text-container>li{
-				width: 60%;
-				height: 100%;
-				margin: 0 20%;
-				padding: 0 25px;
-				position: relative;
-				display: flex;
-				align-items: center;
-				font-size: 22px;
-			}
-			/* 设置剧情字体 */
-			.text-container li:not(span){
-			  font-family:
-			    "SimSun",               /* 宋体适合长文本阅读 */
-			    "PingFang SC",
-			    serif;
-			}
-			/* 设置章节标题样式 */
-			.text-container .first-chapter{
-				height: 50px;
-				top: -50px;
-				left: -20%;
-				font-weight: bold;
-				color: #55aaff;
-				position: absolute;
-				font-size: 30px;
-			}
-			/* 页码定位 页码样式设置 */
-			.text-container .pages{
-				right: 0;
-				bottom: -95%;
-				position: absolute;
-				font-size: 30px; 
-			}
-			/* 设置特殊字体样式 */
-			.text-special{
-				color: #ffaa55;
-			}
-			/* 设置垫子盒子1高 */
-			.d1{
-				width: 100%;
-				height: 18.3%;
-			}
-			/* 设置垫子盒子2高 */
-			.d2{
-				width: 100%;
-				height: 33.4%;
-			}
-			/* 目录标题设置 */
-			.chapter-index{
-				width: 100%;
-				height: 15%;
-				font-size: 36px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-family: '楷体';
-				user-select: none;
-			}
-			/* 目录标题鼠标悬浮样式 */
-			.chapter-index span:hover{
-				cursor: pointer;
-				color: #25edff;
-			}
-			/* 上一页下一页容器 */
-			.revious,.next{
-				width: 80%;
-				height: 18%;
-				display: flex;
-				font-size: 30px;
-				user-select: none;
-				flex-direction: row;
-				align-items: center;
-				writing-mode: vertical-lr;/* 文字垂直排列 */
-			}
-			/* 避免鼠标悬浮样式范围过大 */
-			.shang,.xia{
-				width: 30px;
-				height: 115px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			/* 上一页下一页鼠标悬浮样式 */
-			.shang:hover,.xia:hover{
-				cursor: pointer;
-				color: #25edff;
-			}
-			/* 设置两边容器 */
-			.con {
-				width: 10%;
-				display: flex;
-				align-items: center;
-				border-radius: 20px;
-				justify-content: center;
-			}
-			/* 左边容器布局 */
-			.left-con {
-				flex-direction: row;
-			}
-			.left-con .revious {
-				order: 2;
-			}
-			.left-con .turn-page {
-				order: 1;
-			}
-			/* 右边容器布局 */
-			.right-con {
-				flex-direction: row;
-			}
-			.right-con .next {
-				order: 1;
-			}
-			.right-con .turn-page {
-				order: 2;
-			}
-			/* 上一页 */
-			.revious {
-				justify-content: center;
-			}
-			/* 下一页 */
-			.next {
-				justify-content: center;
-			}
-			/* 翻页按钮设置 */
-			.turn-page {
-				width: 20%;
-				height: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border: none;
-				font-size: 30px;
-				border-radius: 60px;
-			}
-			
-			/* 添加到现有CSS的最后 */
-			
-			/* 页码样式 */
-		
-			/* 当pages隐藏时的样式 */
-			.text-container .pages[style*="display: none"] {
-			    opacity: 0;
-			    visibility: hidden;
-			}
-			
-			/* 当pages显示时的样式 */
-			.text-container .pages[style*="display: block"],
-			.text-container .pages:not([style]) {
-			    opacity: 1;
-			    visibility: visible;
-			}
-			
+}
+/* 更小窄屏再收一点 */
+@media (max-width: 420px) {
+	.Story-index .index-item{
+		width: 60%;
+		font-size: 18px;
+		}
+	.Adventure-index .index-item{
+		width: 50%;
+		font-size: 18px;
+		}
+	.story-view {
+		padding: 0 56px;
+	}
+	.turn-page {
+		width: 40px;
+		height: 40px;
+		font-size: 24px;
+	}
+	.story-page {
+		font-size: clamp(17px, 4.6vw, 21px);
+	}
+}
