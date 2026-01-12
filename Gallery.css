@@ -8,7 +8,7 @@
 			/* 顶部导航栏设置 */
 			nav{
 				/* opacity: 0.7; */
-				position: fixed;
+				position: sticky;
 				display: flex;
 				margin: 0 auto;
 				height: 80px;
@@ -59,7 +59,6 @@
 			.split{
 				width: 90%;
 				margin: 0 5% 5% 5%;
-				padding-top: 100px;
 			}
 			/* 设置标题 */
 			.tittle{
@@ -72,19 +71,18 @@
 			}
 			/* 设置网格布局 图鉴主要采用网格布局 */
 			.gallery{
-				height: 1200px;
-				width: 90%;
-				margin: 5%;
-				gap: 2%;
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;/* 设置每竖列的宽 */
-				grid-template-rows: 20% 20% 20% 20% 20%;
-				
+				grid-template-columns: repeat(auto-fit, 180px);
+				grid-auto-rows: 240px;
+				margin: 10px 4%;
+				box-sizing: border-box;
+				column-gap: clamp(10px, 4vw, 50px);
+				row-gap: clamp(30px, 4.5vw, 75px);/* 剩余空间只做整体对齐 */
+				justify-content: center;
 			}
-			/* 设置网格容器 */
+			/* 设置网格项目 */
 			.gallery-items{
-				
 				border-radius: 20px;
 				border: 3px solid #55aaff;
 				background-color: #2a2a4f;
-			}
+			}}
